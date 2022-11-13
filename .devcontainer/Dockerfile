@@ -162,10 +162,10 @@ RUN bash .asdf/toolset/neovim/build-deps
 USER asdf
 RUN asdf-install-toolset neovim
 
-USER root
-# RUN apt-get update && apt-get upgrade && apt-get install -y sudo
-RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-USER asdf
-RUN npm install sfdx-cli --global
+# USER root
+# # RUN apt-get update && apt-get upgrade && apt-get install -y sudo
+# RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+# USER asdf
+# RUN npm install sfdx-cli --global
 
 

@@ -10,6 +10,8 @@ ENV DEBCONF_NOWARNINGS yes
 
 USER root
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y sudo
+RUN useradd --uid 1001 --create-home --shell /bin/bash -G sudo,root ubuntu-sudoer
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 # ロケールを日本語UTF-8に設定
 # これによりDocker環境下で日本語入力が可能となる 
 USER root

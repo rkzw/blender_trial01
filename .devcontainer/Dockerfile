@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV DEBCONF_NOWARNINGS yes
 
 USER root
-RUN apt-get update && apt-get upgrade && apt-get install -y sudo
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y sudo
 # ロケールを日本語UTF-8に設定
 # これによりDocker環境下で日本語入力が可能となる 
 USER root

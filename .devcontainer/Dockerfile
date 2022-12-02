@@ -7,6 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # apt-get installする際に表示されるエラーメッセージ(次行)の抑止
 # debconf: delaying package configuration, since apt-utils is not installed
 ENV DEBCONF_NOWARNINGS yes
+
+USER root
+RUN apt-get update && apt-get upgrade && apt-get install -y sudo
 # ロケールを日本語UTF-8に設定
 # これによりDocker環境下で日本語入力が可能となる 
 USER root
@@ -162,8 +165,6 @@ RUN bash .asdf/toolset/neovim/build-deps
 USER asdf
 RUN asdf-install-toolset neovim
 
-USER root
-RUN apt-get update && apt-get upgrade && apt-get install -y sudo
 # RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
 # USER asdf
 # RUN npm install sfdx-cli --global
